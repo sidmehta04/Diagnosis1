@@ -4,11 +4,11 @@ import pickle
 import os
 
 def extract_and_process_data(zip_path, csv_filename, chunk_size=100000):
-    # if os.path.exists("C:/Users/siidh/Documents/Mswasth/consult_details_all_partner_data/processed_data.pkl"):
-    if os.path.exists("processed_data.pkl"):
+    if os.path.exists("C:/Users/siidh/Documents/Mswasth/consult_details_all_partner_data/processed_data.pkl"):
+    # if os.path.exists("processed_data.pkl"):
         print("Loading processed data from pickle file...")
-        # with open("C:/Users/siidh/Documents/Mswasth/consult_details_all_partner_data/processed_data.pkl", "rb") as file:
-        with open("processed_data.pkl", "rb") as file:
+        with open("C:/Users/siidh/Documents/Mswasth/consult_details_all_partner_data/processed_data.pkl", "rb") as file:
+        # with open("processed_data.pkl", "rb") as file:
             processed_df = pickle.load(file)
     else:
         # Initialize an empty list to store the chunks
@@ -40,15 +40,15 @@ def extract_and_process_data(zip_path, csv_filename, chunk_size=100000):
         print("Processing data...")
 
         # Save the processed DataFrame as a pickle file
-        # with open("C:/Users/siidh/Documents/Mswasth/consult_details_all_partner_data/processed_data.pkl", "wb") as file:
-        with open("processed_data.pkl", "wb") as file:
+        with open("C:/Users/siidh/Documents/Mswasth/consult_details_all_partner_data/processed_data.pkl", "wb") as file:
+        # with open("processed_data.pkl", "wb") as file:
             pickle.dump(processed_df, file)
 
     return processed_df
 
 
-# zip_path="C:/Users/siidh/Documents/Mswasth/consult_details_all_partner_data/consult_det_report_gen.zip"
-zip_path = "C:\Projects\MSWASTH\consult_det_report_gen.zip"
+zip_path="C:/Users/siidh/Documents/Mswasth/consult_details_all_partner_data/consult_det_report_gen.zip"
+# zip_path = "C:\Projects\MSWASTH\consult_det_report_gen.zip"
 file_path="consult_det_report_gen.csv"
 
 df=extract_and_process_data(zip_path,file_path)
